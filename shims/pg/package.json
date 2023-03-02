@@ -1,0 +1,11 @@
+{
+  "name": "pg",
+  "version": "8.8.0",
+  "description": "Shim to provide the @neondatabase/serverless package in place of pg",
+  "exports": {
+    "require": "./index.js",
+    "import": "./index.mjs"
+  },
+  "author": "George MacKerron",
+  "license": "ISC"
+}

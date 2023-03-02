@@ -1,0 +1,12 @@
+{
+  "include": [
+    "api/**/*",
+    "zapatos/**/*"
+  ],
+  "compilerOptions": {
+    "target": "ES2020",
+    "moduleResolution": "Node",
+    "esModuleInterop": true,
+    "strict": true
+  }
+}

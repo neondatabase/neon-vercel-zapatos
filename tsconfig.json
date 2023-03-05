@@ -1,6 +1,7 @@
 {
   "include": [
     "api/**/*",
+    "src/**/*",
     "zapatos/**/*"
   ],
   "compilerOptions": {

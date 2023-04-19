@@ -51,7 +51,7 @@ npm run update-zapatos-types
 
 # deploy to Vercel
 npx vercel login
-(source .dev.vars && echo $DATABASE_URL | npx vercel env add DATABASE_URL)
+(source .dev.vars && echo $DATABASE_URL | npx vercel env add DATABASE_URL preview)
 npx vercel deploy
 
 # deploy to Cloudflare

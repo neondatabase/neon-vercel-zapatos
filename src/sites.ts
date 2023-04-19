@@ -1,4 +1,6 @@
 import { Pool } from '@neondatabase/serverless';
+// since it's shimmed, `import { Pool } from 'pg';` would have exactly the same effect
+
 import * as db from 'zapatos/db';
 import * as s from 'zapatos/schema';
 

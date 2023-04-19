@@ -13,7 +13,7 @@ The `@neondatabase/serverless` driver is compatible with (and built on top of) [
 
 First, we include a tiny [local-path package](https://docs.npmjs.com/cli/v9/configuring-npm/package-json#local-paths), which you'll find in `shims/pg`. This calls itself `pg` but simply re-exports the contents of `@neondatabase/serverless`. That makes Zapatos work in a serverless environment.
 
-Second, we generate and update the Zapatos schema types (inside `./zapatos`) at development-time using Node, by running `npm run update-zapatos-types`. Node has no native `WebSocket` object, but the `@neondatabase/serverless` driver tries to import the `ws` package in this case, so we include `ws` as one the `devDependencies` in `package.json`.
+Second, we generate and update the Zapatos schema types (inside `./zapatos`) at development-time using Node, by running `npm run update-zapatos-types`. Because Node has no native `WebSocket` object, this calls a simple custom script, `update-zapatos-types.mjs`, in which we configure the serverless driver to use the `ws` package.
 
 Third, it's important to set `"strict": true` and add `"zapatos/**/*"` to the `"include"` directive in `tsconfig.json`.
 

@@ -145,6 +145,119 @@ declare module 'zapatos/schema' {
   }
 
   /**
+   * **pokemon**
+   * - Table in database
+   */
+  export namespace pokemon {
+    export type Table = 'pokemon';
+    export interface Selectable {
+      /**
+      * **pokemon.id**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      id: number;
+      /**
+      * **pokemon.name**
+      * - `varchar` in database
+      * - `NOT NULL`, no default
+      */
+      name: string;
+      /**
+      * **pokemon.type**
+      * - `varchar` in database
+      * - `NOT NULL`, no default
+      */
+      type: string;
+    }
+    export interface JSONSelectable {
+      /**
+      * **pokemon.id**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      id: number;
+      /**
+      * **pokemon.name**
+      * - `varchar` in database
+      * - `NOT NULL`, no default
+      */
+      name: string;
+      /**
+      * **pokemon.type**
+      * - `varchar` in database
+      * - `NOT NULL`, no default
+      */
+      type: string;
+    }
+    export interface Whereable {
+      /**
+      * **pokemon.id**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      id?: number | db.Parameter<number> | db.SQLFragment | db.ParentColumn | db.SQLFragment<any, number | db.Parameter<number> | db.SQLFragment | db.ParentColumn>;
+      /**
+      * **pokemon.name**
+      * - `varchar` in database
+      * - `NOT NULL`, no default
+      */
+      name?: string | db.Parameter<string> | db.SQLFragment | db.ParentColumn | db.SQLFragment<any, string | db.Parameter<string> | db.SQLFragment | db.ParentColumn>;
+      /**
+      * **pokemon.type**
+      * - `varchar` in database
+      * - `NOT NULL`, no default
+      */
+      type?: string | db.Parameter<string> | db.SQLFragment | db.ParentColumn | db.SQLFragment<any, string | db.Parameter<string> | db.SQLFragment | db.ParentColumn>;
+    }
+    export interface Insertable {
+      /**
+      * **pokemon.id**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      id: number | db.Parameter<number> | db.SQLFragment;
+      /**
+      * **pokemon.name**
+      * - `varchar` in database
+      * - `NOT NULL`, no default
+      */
+      name: string | db.Parameter<string> | db.SQLFragment;
+      /**
+      * **pokemon.type**
+      * - `varchar` in database
+      * - `NOT NULL`, no default
+      */
+      type: string | db.Parameter<string> | db.SQLFragment;
+    }
+    export interface Updatable {
+      /**
+      * **pokemon.id**
+      * - `int4` in database
+      * - `NOT NULL`, no default
+      */
+      id?: number | db.Parameter<number> | db.SQLFragment | db.SQLFragment<any, number | db.Parameter<number> | db.SQLFragment>;
+      /**
+      * **pokemon.name**
+      * - `varchar` in database
+      * - `NOT NULL`, no default
+      */
+      name?: string | db.Parameter<string> | db.SQLFragment | db.SQLFragment<any, string | db.Parameter<string> | db.SQLFragment>;
+      /**
+      * **pokemon.type**
+      * - `varchar` in database
+      * - `NOT NULL`, no default
+      */
+      type?: string | db.Parameter<string> | db.SQLFragment | db.SQLFragment<any, string | db.Parameter<string> | db.SQLFragment>;
+    }
+    export type UniqueIndex = 'pokemon_pkey';
+    export type Column = keyof Selectable;
+    export type OnlyCols<T extends readonly Column[]> = Pick<Selectable, T[number]>;
+    export type SQLExpression = Table | db.ColumnNames<Updatable | (keyof Updatable)[]> | db.ColumnValues<Updatable> | Whereable | Column | db.ParentColumn | db.GenericSQLExpression;
+    export type SQL = SQLExpression | SQLExpression[];
+  }
+
+  /**
    * **whc_sites_2021**
    * - Table in database
    */
@@ -1310,20 +1423,20 @@ declare module 'zapatos/schema' {
   /* --- aggregate types --- */
 
   export namespace public {  
-    export type Table = employees.Table | whc_sites_2021.Table;
-    export type Selectable = employees.Selectable | whc_sites_2021.Selectable;
-    export type JSONSelectable = employees.JSONSelectable | whc_sites_2021.JSONSelectable;
-    export type Whereable = employees.Whereable | whc_sites_2021.Whereable;
-    export type Insertable = employees.Insertable | whc_sites_2021.Insertable;
-    export type Updatable = employees.Updatable | whc_sites_2021.Updatable;
-    export type UniqueIndex = employees.UniqueIndex | whc_sites_2021.UniqueIndex;
-    export type Column = employees.Column | whc_sites_2021.Column;
+    export type Table = employees.Table | pokemon.Table | whc_sites_2021.Table;
+    export type Selectable = employees.Selectable | pokemon.Selectable | whc_sites_2021.Selectable;
+    export type JSONSelectable = employees.JSONSelectable | pokemon.JSONSelectable | whc_sites_2021.JSONSelectable;
+    export type Whereable = employees.Whereable | pokemon.Whereable | whc_sites_2021.Whereable;
+    export type Insertable = employees.Insertable | pokemon.Insertable | whc_sites_2021.Insertable;
+    export type Updatable = employees.Updatable | pokemon.Updatable | whc_sites_2021.Updatable;
+    export type UniqueIndex = employees.UniqueIndex | pokemon.UniqueIndex | whc_sites_2021.UniqueIndex;
+    export type Column = employees.Column | pokemon.Column | whc_sites_2021.Column;
   
-    export type AllBaseTables = [employees.Table, whc_sites_2021.Table];
+    export type AllBaseTables = [employees.Table, pokemon.Table, whc_sites_2021.Table];
     export type AllForeignTables = [];
     export type AllViews = [];
     export type AllMaterializedViews = [];
-    export type AllTablesAndViews = [employees.Table, whc_sites_2021.Table];
+    export type AllTablesAndViews = [employees.Table, pokemon.Table, whc_sites_2021.Table];
   }
 
 
@@ -1352,41 +1465,49 @@ declare module 'zapatos/schema' {
 
   export type SelectableForTable<T extends Table> = {
     "employees": employees.Selectable;
+    "pokemon": pokemon.Selectable;
     "whc_sites_2021": whc_sites_2021.Selectable;
   }[T];
 
   export type JSONSelectableForTable<T extends Table> = {
     "employees": employees.JSONSelectable;
+    "pokemon": pokemon.JSONSelectable;
     "whc_sites_2021": whc_sites_2021.JSONSelectable;
   }[T];
 
   export type WhereableForTable<T extends Table> = {
     "employees": employees.Whereable;
+    "pokemon": pokemon.Whereable;
     "whc_sites_2021": whc_sites_2021.Whereable;
   }[T];
 
   export type InsertableForTable<T extends Table> = {
     "employees": employees.Insertable;
+    "pokemon": pokemon.Insertable;
     "whc_sites_2021": whc_sites_2021.Insertable;
   }[T];
 
   export type UpdatableForTable<T extends Table> = {
     "employees": employees.Updatable;
+    "pokemon": pokemon.Updatable;
     "whc_sites_2021": whc_sites_2021.Updatable;
   }[T];
 
   export type UniqueIndexForTable<T extends Table> = {
     "employees": employees.UniqueIndex;
+    "pokemon": pokemon.UniqueIndex;
     "whc_sites_2021": whc_sites_2021.UniqueIndex;
   }[T];
 
   export type ColumnForTable<T extends Table> = {
     "employees": employees.Column;
+    "pokemon": pokemon.Column;
     "whc_sites_2021": whc_sites_2021.Column;
   }[T];
 
   export type SQLForTable<T extends Table> = {
     "employees": employees.SQL;
+    "pokemon": pokemon.SQL;
     "whc_sites_2021": whc_sites_2021.SQL;
   }[T];
 

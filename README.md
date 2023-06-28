@@ -4,8 +4,6 @@ This repo demonstrates the use of [Zapatos](https://jawj.github.io/zapatos/) wit
 
 We implement a simple app that generates a JSON listing of the user's nearest 10 UNESCO World Heritage sites via IP geolocation (data copyright © 1992 – 2022 [UNESCO/World Heritage Centre](https://whc.unesco.org/en/syndication/)).
 
-Note: at the time of writing, WebSockets are not supported in the local Vercel development environment, so `npx vercel dev` is not usable.
-
 
 ## How it works
 
@@ -20,22 +18,19 @@ Third, it's important to set `"strict": true` and add `"zapatos/**/*"` to the `"
 
 ## Deploy
 
-* Ensure the `psql` client is installed
+* Ensure the `psql` client is installed.
 
-* Create a Neon database and make a note of the connection string.
+* Create a Neon database and make a note of the connection string from the [Neon console](https://console.neon.tech/).
 
 * Clone this repo, then:
 
 ```bash
 # get dependencies
 npm install
-
-# set up Vercel
-npx vercel login
-npx vercel link
+npm install -g vercel@latest
 
 # create DATABASE_URL environment variable, remote and local
-npx vercel env add DATABASE_URL  # paste in the connection string: postgres://...
+npx vercel env add DATABASE_URL  # paste in the connection string and select all environments
 npx vercel env pull .env.local  # now bring it down into ./.env.local for local use
 
 # create the schema and copy data to DB
@@ -46,8 +41,13 @@ npx vercel env pull .env.local  # now bring it down into ./.env.local for local 
 # update Zapatos types from DB
 npm run update-zapatos-types
 
+# test
+npx vercel dev
+
 # ... and deploy
 npx vercel deploy
 ```
 
-* Now visit the deployed function at the URL given
+## Feedback and support
+
+Please visit [Neon Community](https://community.neon.tech/) or [Support](https://neon.tech/docs/introduction/support).

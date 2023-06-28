@@ -7,14 +7,13 @@
     "update-zapatos-types": "env-cmd -f .env.local node ./update-zapatos-types.mjs"
   },
   "dependencies": {
-    "@neondatabase/serverless": "^0.4.1",
+    "@neondatabase/serverless": "^0.4.20",
     "pg": "file:shims/pg",
     "zapatos": "^6.1.0"
   },
   "devDependencies": {
     "env-cmd": "^10.1.0",
     "typescript": "^5.0.4",
-    "vercel": "^28.14.1",
     "ws": "^8.12.0"
   }
 }

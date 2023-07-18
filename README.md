@@ -4,8 +4,6 @@ This repo demonstrates the use of [Zapatos](https://jawj.github.io/zapatos/) wit
 
 We implement a simple app that generates a JSON listing of the user's nearest 10 UNESCO World Heritage sites via IP geolocation (data copyright © 1992 – 2022 [UNESCO/World Heritage Centre](https://whc.unesco.org/en/syndication/)).
 
-Note: at the time of writing, there's a bug in `vercel dev` which causes a 500 error when you try to use Zapatos. We hope this will be fixed shortly. In the meantime, `vercel deploy` works fine.
-
 
 ## How it works
 

@@ -7,7 +7,7 @@
     "update-zapatos-types": "env-cmd -f .env.local node ./update-zapatos-types.mjs"
   },
   "dependencies": {
-    "@neondatabase/serverless": "^0.4.20",
+    "@neondatabase/serverless": "^0.5.2",
     "pg": "file:shims/pg",
     "zapatos": "^6.1.0"
   },
